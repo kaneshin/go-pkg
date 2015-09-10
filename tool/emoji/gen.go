@@ -17,17 +17,22 @@ func main() {
 	}
 	r16 := []string{}
 	r32 := []string{}
+	offset := 0
 	for _, r := range string(dat) {
 		if 0xfff0000&int(r) == 0 {
 			r16 = append(r16, fmt.Sprintf("0x%04x", r))
 		} else {
 			r32 = append(r32, fmt.Sprintf("0x%04x", r))
 		}
+		if int(r) <= 0xff {
+			offset++
+		}
 	}
 	t := template.Must(template.New("").Parse(text))
 	data := map[string]interface{}{
-		"R16": r16,
-		"R32": r32,
+		"R16":         r16,
+		"R32":         r32,
+		"LatinOffset": offset,
 	}
 	var writer bytes.Buffer
 	if err := t.Execute(&writer, data); err != nil {
@@ -60,7 +65,7 @@ var e = &unicode.RangeTable{
 	},
 	R32: []unicode.Range32{{printf "{"}}{{range .R32}}{{printf "\n\t\t{%s, %s, 1}," . .}}{{end}}
 	},
-	LatinOffset: 2,
+	LatinOffset: {{.LatinOffset}},
 }
 
 // IsEmoji reports whether the rune is a emoji.
