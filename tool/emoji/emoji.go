@@ -1047,7 +1047,7 @@ var e = &unicode.RangeTable{
 		{0x1f984, 0x1f984, 1},
 		{0x1f9c0, 0x1f9c0, 1},
 	},
-	LatinOffset: 3,
+	LatinOffset: 2,
 }
 
 // IsEmoji reports whether the rune is a emoji.

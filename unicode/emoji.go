@@ -4,7 +4,7 @@ import (
 	"unicode"
 )
 
-var emojiTable = &unicode.RangeTable{
+var e = &unicode.RangeTable{
 	R16: []unicode.Range16{
 		{0x00a9, 0x00a9, 1},
 		{0x00ae, 0x00ae, 1},
@@ -1047,10 +1047,10 @@ var emojiTable = &unicode.RangeTable{
 		{0x1f984, 0x1f984, 1},
 		{0x1f9c0, 0x1f9c0, 1},
 	},
-	LatinOffset: 1,
+	LatinOffset: 2,
 }
 
 // IsEmoji reports whether the rune is a emoji.
 func IsEmoji(r rune) bool {
-	return unicode.In(r, emojiTable)
+	return unicode.In(r, e)
 }
