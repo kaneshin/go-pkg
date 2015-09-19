@@ -1,15 +1,5 @@
 ### Go ###
 *.test
-*.coverprofile
-
-
-### Revel ###
-test-results/
-tmp/
-routes/
-
-### Redis ###
-dump.rdb
 
 ### vim ###
 [._]*.s[a-w][a-z]
@@ -146,9 +136,3 @@ atlassian-ide-plugin.xml
 .project
 .settings
 
-# Gom
-_vendor/
-
-# Debug
-misc/runners/playground.src.go
-misc/runners/playground.sql.xorm.txt
