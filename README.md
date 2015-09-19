@@ -1,4 +1,4 @@
-# Gopack
+# go-pkg
 
 ## Installation
 
